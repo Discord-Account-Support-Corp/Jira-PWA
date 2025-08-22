@@ -6,17 +6,12 @@
   <title>DASC Jira</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0052cc">
-  <style>
-    html, body { margin: 0; height: 100%; }
-    iframe { width: 100%; height: 100%; border: none; }
-  </style>
 </head>
 <body>
-  <iframe src="https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary"></iframe>
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
+    // Redirect immediately to Jira
+    window.location.href = "https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary";
   </script>
+  <p>Redirecting to Jira...</p>
 </body>
 </html>
