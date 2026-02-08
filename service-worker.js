@@ -1,29 +1,25 @@
-const CACHE_NAME = "jira-cache-v2";
-const JIRA_PROJECT_URL = "https://discord-account-support-corp.atlassian.net/jira/polaris/projects/COMMUNITY/ideas/view/8270241";
+const CACHE_NAME = "dasc-pwa-v1";
 
-self.addEventListener("install", e => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(["/", JIRA_PROJECT_URL]);
-    })
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache =>
+      cache.addAll([
+        "/",
+        "/index.html",
+        "/manifest.json",
+        "/icons/icon-192.png",
+        "/icons/icon-512.png"
+      ])
+    )
   );
 });
 
-self.addEventListener("fetch", e => {
-  const url = e.request.url;
+self.addEventListener("fetch", event => {
+  if (event.request.method !== "GET") return;
 
-  if (url.startsWith("https://discord-account-support-corp.atlassian.net/jira/polaris/projects/COMMUNITY/")) {
-    e.respondWith(
-      caches.match(e.request).then(response => {
-        return response || fetch(e.request).then(fetchRes => {
-          return caches.open(CACHE_NAME).then(cache => {
-            cache.put(e.request, fetchRes.clone());
-            return fetchRes;
-          });
-        });
-      })
-    );
-  } else {
-    e.respondWith(fetch(e.request));
-  }
+  event.respondWith(
+    caches.match(event.request).then(response =>
+      response || fetch(event.request)
+    )
+  );
 });
