@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Copilot Studio Community</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASC Jira</title>
 
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0078D7" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0052cc">
 
   <style>
     body {
-      font-family: system-ui, sans-serif;
-      background: #f7f7f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f5f7;
+      font-family: system-ui, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
       text-align: center;
     }
 
     button {
-      padding: 16px 32px;
-      font-size: 1.2em;
-      background: #0078D7;
-      color: white;
+      margin-top: 16px;
+      padding: 12px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
+      background: #0052cc;
+      color: white;
       cursor: pointer;
     }
 
-    a {
-      text-decoration: none;
+    button:hover {
+      background: #0747a6;
     }
   </style>
 </head>
-
 <body>
-  <a
-    href="https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary"
-    rel="noopener noreferrer"
-  >
-    <button>
-      Open DASC Jira Communityt
-    </button>
-  </a>
+
+  <div class="card">
+    <h2>DASC Jira</h2>
+    <p>Open the Jira project</p>
+
+    <button onclick="openJira()">Open Jira</button>
+  </div>
+
+  <script>
+    function openJira() {
+      window.location.href =
+        "https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary";
+    }
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
 </body>
 </html>
