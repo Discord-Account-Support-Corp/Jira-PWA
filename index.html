@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DASC Jira</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0052cc">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Copilot Studio Community</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0078D7" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    button {
+      padding: 16px 32px;
+      font-size: 1.2em;
+      background: #0078D7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
-  <script>
-    // Redirect immediately to Jira
-    window.location.href = "https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary";
-  </script>
-  <p>Redirecting to Jira...</p>
+  <a
+    href="https://discord-account-support-corp.atlassian.net/jira/core/projects/DASC/summary"
+    rel="noopener noreferrer"
+  >
+    <button>
+      Open DASC Jira Communityt
+    </button>
+  </a>
 </body>
 </html>
